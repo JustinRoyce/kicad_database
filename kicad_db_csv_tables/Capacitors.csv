@@ -1,0 +1,2 @@
+Value,Description,MPN,Symbols,Footprints,Datasheet,Manufacturer,Digikey_PN,Mouser_PN,LCSC_PN,Misc_Distributor,Misc_PN,Misc_Link,Tolerance,Rating,Package,Notes
+100nF,100nF 0603 50V,CL10B104KB8NNNC,Device:C,Capacitor_SMD:C_0603_1608Metric,https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL10B104KB8NNNC_Spec.pdf,Samsung Electro-Mechanics,1276-1000-1-ND,,,,,,±10%,50V,603,modifed

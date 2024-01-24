@@ -1,0 +1,1470 @@
+{
+    "meta": {
+        "version": 0,
+        "filename": "master_database.kicad_dbl"
+      },
+    "name": "Master_Kicad_Database",
+    "description": "Master Custom Database",
+    "source": {
+        "type": "odbc",
+        "dsn": "kicad_db",
+        "username": "",
+        "password": "",
+        "timeout_seconds": 2,
+        "connection_string": ""
+      },
+    "libraries": [
+            {
+                "name": "Resistors",
+                "table": "Resistors",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Capacitors",
+                "table": "Capacitors",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Inductors",
+                "table": "Inductors",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Diodes",
+                "table": "Diodes",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Transistors",
+                "table": "Transistors",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Connectors",
+                "table": "Connectors",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Integrated_Circuits",
+                "table": "Integrated_Circuits",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Fuses",
+                "table": "Fuses",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Relays",
+                "table": "Relays",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Oscillators",
+                "table": "Oscillators",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Switches",
+                "table": "Switches",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            },
+            {
+                "name": "Misc",
+                "table": "Misc",
+                "key": "Part_ID",
+                "symbols": "Symbols",
+                "footprints": "Footprints",
+                "fields": [
+                    {
+                        "column": "Value",
+                        "name": "Value",
+                        "visible_on_add": true,
+                        "visible_in_chooser": true,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Description",
+                        "name": "Description",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "MPN",
+                        "name": "MPN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Datasheet",
+                        "name": "Datasheet",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Manufacturer",
+                        "name": "Manufacturer",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Digikey_PN",
+                        "name": "Digikey_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Mouser_PN",
+                        "name": "Mouser_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "LCSC_PN",
+                        "name": "LCSC_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Distributor",
+                        "name": "Misc_Distributor",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_PN",
+                        "name": "Misc_PN",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Misc_Link",
+                        "name": "Misc_Link",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Tolerance",
+                        "name": "Tolerance",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Rating",
+                        "name": "Rating",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Package",
+                        "name": "Package",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    },
+                    {
+                        "column": "Notes",
+                        "name": "Notes",
+                        "visible_on_add": false,
+                        "visible_in_chooser": false,
+                        "show_name": false
+                    }
+                ],
+                "properties": {
+                    "description": "Description",
+                    "footprint_filters": "Footprint Filters",
+                    "keywords": "Keywords",
+                    "exclude_from_bom": "No BOM",
+                    "exclude_from_board": "Schematic Only"
+                }
+            }
+        ]
+}
