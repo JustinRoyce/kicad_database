@@ -3,12 +3,30 @@
 TO PREVIEW INFORMATION AS MARKDOWN IN VSCODE TYPE CTRL + K , THEN V
 ```
 
-The project is designed to used to access and modify kicad component information via a custom database. This database information will link to 
+The project is designed to used to access and modify kicad component information via a custom database. This database information will link to kicad schematic. 
 
 Author: Justin Royce 2024
 
 ---
 
+
+# FILE STRUCTURE FOR DATABASE PROGRAM
+
+**KEY**
+<p> <img alt="folder icon" src="media/folder.svg" width="20"/> folders are <b>bold</b> </p>
+<p><img alt="folder icon" src="media/file.svg" width="20"/> files are <i>italics</i></p> 
+
+The data structure for the program is as follows:
+
+<img alt="folder icon" src="media/folder.svg" width="20"/>**database (root directory)** <br>
+<img alt="folder icon" src="media/folder.svg" width="20"/> 
+<b>export</b> folder contains 
+<img alt="folder icon" src="media/folder.svg" width="20"/> 
+ kicad_db_gui_code
+
+
+
+---
 ## Kicad Database Format
 
 The kicad database consists of the following tables:
@@ -78,20 +96,7 @@ run the command in the terminal:
 isql kicad_db
 
 ```
----
-if connected the kicad_db is functioning 
 
-# FILE STRUCTURE FOR DATABASE PROGRAM
+if you are proprompted with the database is connected, the ODBC kicad database is functioning. 
 
-**KEY**
-- folders are **bold**
-- files are *italics*
-
-The data structure for the program is as follows:
-
-**database (root directory)**
-- **export** folder contains 
-- kicad_db_gui_code
--
--
 
