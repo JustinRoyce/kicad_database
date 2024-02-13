@@ -9,20 +9,43 @@ Author: Justin Royce 2024
 
 ---
 
+# CODE REQUIREMENTS
+
+- query SQL using fields with respect to tables 
+
+- exports cvs files from Database
+
+
 
 # FILE STRUCTURE FOR DATABASE PROGRAM
 
 **KEY**
-<p> <img alt="folder icon" src="media/folder.svg" width="20"/> folders are <b>bold</b> </p>
-<p><img alt="folder icon" src="media/file.svg" width="20"/> files are <i>italics</i></p> 
-
+<div> 
+    <img alt="folder icon" src="media/folder.svg" width="20"/> 
+        folders are <b>bold</b> 
+<div>
+<div>
+    <img alt="folder icon" src="media/file.svg" width="20"/> 
+    files are <i>italics</i>
+</div> 
+<br>
 The data structure for the program is as follows:
 
-<img alt="folder icon" src="media/folder.svg" width="20"/>**database (root directory)** <br>
-<img alt="folder icon" src="media/folder.svg" width="20"/> 
-<b>export</b> folder contains 
-<img alt="folder icon" src="media/folder.svg" width="20"/> 
- kicad_db_gui_code
+<div>
+    <img alt="folder icon" src="media/folder.svg" width="20"/>
+    <b>kicad_database (root directory)</b>
+</div>
+
+<div style="position:relative; left:20px;">
+    <img alt="folder icon" src="media/folder.svg" width="20"/> 
+    <b>export</b> 
+    folder contains export information
+</div>
+
+<div style="position:relative; left:20px;">
+    <img alt="folder icon" src="media/folder.svg" width="20"/> 
+    <b>kicad_db_gui_code</b>
+</div>    
 
 
 
@@ -94,7 +117,6 @@ run the command in the terminal:
 
 ```
 isql kicad_db
-
 ```
 
 if you are proprompted with the database is connected, the ODBC kicad database is functioning. 
