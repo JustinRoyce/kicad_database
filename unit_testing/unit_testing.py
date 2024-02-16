@@ -1,9 +1,21 @@
 ##
-#
+# UNIT TESTING FOR DATABASE 
 #
 import os
 import sys
 import shutil
+from termcolor import colored, cprint
+from rich.console import Console
+from rich.table import Table
+
+##
+# TERMINAL COLOR VARIABLES
+#
+TERMC_DEFAULT = "green"
+TERMC_ERROR = "red"
+TERMC_WARNING = "yellow"
+TERMC_SUCCESS = "green"
+TERMC_INFO = "black"
 
 ###############################
 # SET ROOT DIRECTORY FOR
@@ -38,19 +50,58 @@ def test_clean_bay_dir():
 #
 def test_db_creation(kicad_db_class:Kicad_Database,db_path:str):
     status_bool, status_msg = kicad_db_class.create_new_kicad_table(db_path = db_path)
-    print(status_msg)
+    if(status_bool):
+        cprint(status_msg,TERMC_INFO)
+    else:
+        cprint(status_msg,TERMC_ERROR)
+
+    
     return status_bool
 
+
+###
+# print database info
+#
+def print_database_info(kicad_db):
+
+
+     
+    # print database information
+    pragma_info = kicad_db.get_datebase_pragma_info(kicad_db.get_SQL_connect())
+    database_msg = colored("DATA PATH: ",TERMC_DEFAULT)
+    database_path = colored(pragma_info[0][2],TERMC_INFO)
+    print(database_msg + database_path) 
+
+    table_list = kicad_db.get_tables_list()
+    table_msg = colored("AVAILABLE TABLES: ",TERMC_DEFAULT)
+    table_str= colored(table_list,TERMC_INFO)
+    print(table_msg + table_str )
+    table_count_dict = {}
+    for table in table_list:
+        table_count = kicad_db.get_SQL_row_count(table_name = table)
+        table_count_dict[table] = table_count
+
+    console = Console()
+
+    table = Table(show_header=True, header_style="Green")
+    table.add_column("Table")
+    table.add_column("Number of Line Items")
+    
+    for key in table_count_dict:
+        table.add_row(key,str(table_count_dict[key]))
+    
+    console.print(table)
 ##
 # validates if kicad database structure
 #
 def test_db_validation(kicad_db_class:Kicad_Database):
+
     pass
 
 def test_main():
     print("")
-    print("****** START ******")
-    print("working!!!")
+    cprint("****** TESTING STARTED ******",TERMC_DEFAULT)
+    
 
     kicad_db = Kicad_Database()
     # clear directory of all file and folders
@@ -66,15 +117,18 @@ def test_main():
         #set conn
         kicad_db.set_SQL_connect(sql_conn)
         kicad_db.set_database_path(TEST_DB_PATH)
-        print("Connection Set")
+        cprint("Database Connection is Set",TERMC_SUCCESS)
     else:
-        print("SQL Connection Failed")
+        cprint("SQL Connection Failed",TERMC_ERROR)
         print(conn_msg)
         return 0
 
     # get database information
+    print("")
+    cprint("**** DATABASE INFO: *****",TERMC_DEFAULT)
+    print_database_info(kicad_db=kicad_db)
 
-    kicad_db.get_datebase_pragma_info(kicad_db.get_SQL_connect())
+    
 
     #test_db_validation(kicad_db_class=kicad_db)
 

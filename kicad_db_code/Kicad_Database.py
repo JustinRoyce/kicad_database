@@ -65,14 +65,6 @@ TBL_RD_OSCILLATOR = "XTAL,Y"
 TBL_RD_SWITCH = "SW"
 TBL_RD_MISC = "???"
 
-SQLITE_EXTENSION_LIST = [".sqlite", 
-".sqlite3", 
-".db", 
-".db3", 
-".s3db", 
-".sl3"]
-
-
 KICAD_TABLE_NAME_LIST = [
     TBL_NAME_RESISTOR,
     TBL_NAME_CAPACITOR,
@@ -195,26 +187,7 @@ class Kicad_Database:
         quote_str = "\"" + raw_str + "\""
         return quote_str
 
-
-    ##
-    # @brief confirms if the file is a SQL extension 
-    # @return true if file path extension is sqlite3 
-    #
-    def is_sql_extension(self, file_path):
-        is_sql_ext = False
-        file_ext = pathlib.Path(file_path).suffix
-        for sql_ext in SQLITE_EXTENSION_LIST:
-            if(file_ext == sql_ext):
-                is_sql_ext = True
-                break
-        
-        return is_sql_ext
-
-
     
-
-
-
     ## 
     #@brief updates field list of member functions
     def update_fld_lst(self):
@@ -250,9 +223,6 @@ class Kicad_Database:
         self.SQL_connect = SQL_connect
         return None
     
-    def get_SQL_connect(self):
-        return self.SQL_connect
-    
     ##
     #@brief: resets all field parameter to NULL string 
     def reset_field_params(self):
@@ -281,8 +251,6 @@ class Kicad_Database:
     def get_DB_field_list(self):
         return KICAD_FIELD_NAME_LST
     
-    ##
-    # @brief get database table list
     def get_DB_table_list(self):
         return KICAD_TABLE_NAME_LIST
 
@@ -310,59 +278,6 @@ class Kicad_Database:
             connect_bool = True
 
         return connect_bool
-    
-
-    ##
-    # get tables list 
-
-    def get_tables_list(self):
-
-        sql_conn = self.get_SQL_connect()
-        sql_query = """SELECT name FROM sqlite_master 
-        WHERE type='table';"""
-    
-        # Creating cursor object using connection object
-        cursor = sql_conn.cursor()
-        
-        # executing our sql query
-        cursor.execute(sql_query)
-        
-        # printing all tables list
-        truple_list = cursor.fetchall()
-        table_list = []
-        for truple in truple_list:
-            if(truple):
-                table_list.append(truple[0])
-        return table_list
-        
-    ##
-    # get SQL row count
-    #
-    def get_SQL_row_count(self,table_name):
-
-        sql_conn = self.get_SQL_connect()
-        b_table_exist, _ = self.does_table_exist(table_name=table_name)
-        
-        if (b_table_exist):
-        
-            sql_query = "SELECT COUNT(*) FROM " + table_name + " ;"
-        
-            # Creating cursor object using connection object
-            cursor = sql_conn.cursor()
-            
-            # executing our sql query
-            cursor.execute(sql_query)
-            
-            # printing all tables list
-            result = cursor.fetchone()
-            row_count= result[0]
-            cursor.close()
-
-            return row_count
-        else:
-            return -1
-
-            
 
     
     ##
@@ -531,7 +446,10 @@ class Kicad_Database:
     # @return: Connection tuple (connect class, status msg)
     #
     def create_connection(self, db_path:str):
-        
+
+        self.set_database_path(db_path=db_path)
+
+
         try:
             conn = sqlite3.connect(db_path)
             status_msg = STATUS_MSG_VALID
@@ -539,9 +457,8 @@ class Kicad_Database:
             
         except Error as e:
             conn = None
-            status_msg = "Connection Error:"+ str(e)
+            status_msg = "\nConnection Error:"+ str(e)
             connect_tuple = (conn,status_msg)
-            return connect_tuple    
 
         return connect_tuple 
 
@@ -550,33 +467,15 @@ class Kicad_Database:
     # @param execute_str  command string to execute sql command 
     def run_sql_execute(self,execute_str):
         conn = self.SQL_connect
-        try:
-            cur = conn.cursor()
-            cur.execute(execute_str)
-            conn.commit()
-            cur.close()
-        except sqlite3.Error as err:
-            status_msg = "SQL ERROR: " + err
-            return_tuple = (False,status_msg)
-            return return_tuple
+        cur = conn.cursor()
+        print(execute_str)
+        cur.execute(execute_str)
+        conn.commit()
+        cur.close()
         
         status_msg = STATUS_MSG_VALID
         return_tuple = (True,status_msg)
         return return_tuple
-    
-
-    ##
-    # #brief get pragma information
-    #
-    def get_datebase_pragma_info(self,sql_conn):
-    
-        cur = sql_conn.cursor()
-        cur.execute("PRAGMA database_list")
-        rows = cur.fetchall()
-        pragma_info_list = []
-        for row in rows:
-            pragma_info_list.append(row)
-        return pragma_info_list
 
     ##
     # @brief confirms if table exists
@@ -591,6 +490,7 @@ class Kicad_Database:
         tables_list = cur.execute(sql_str).fetchall()
         cur.close()
         
+
         b_table_exists = False
         # if empty no table exists
         if(tables_list == []):
@@ -689,25 +589,11 @@ class Kicad_Database:
         return value_str
     
     ##
-    # @brief populates a single data type in a list depending on the size of the field list
-    # @param data_type data type of the sql table field
-    # @param field_list field list of a table
-    # @return
-    def populate_datatype_list(self, field_list, data_type=FIELD_DATATYPE_TEXT):
-        list_size = len(field_list)
-        data_type_list = []
-        for _ in range(list_size):
-            data_type_list.append(data_type)
-        return data_type_list
-
-
-
-    ##
     # @brief create SQL table in database
     # @param table_name is the new table name
     # @param field_list is a list of fields(column headers) for the SQL database
     # @param datatype_list is the datatype for each field
-    def create_sql_table(self,sql_conn,table_name,field_list,datatype_list):
+    def create_sql_table(self,table_name,field_list,datatype_list):
     
         field_type_lst = []
         for index,field in enumerate(field_list):
@@ -718,85 +604,17 @@ class Kicad_Database:
         tuple_str = self.create_lst_2_tuple_str(field_type_lst)    
         sql_str = sql_str + tuple_str + ";"
 
+        (conn, status_msg) = self.create_connection(self.database_path)
         
-        # valid connection
-        if(sql_conn == None):
-            return (False, status_msg)
+        conn = self.SQL_connect
+
+        cur = conn.cursor()
+        cur.execute(sql_str)
+        cur.close()
         
-        try: 
-            cur = sql_conn.cursor()
-            cur.execute(sql_str)
-            cur.close()
-            status_msg = STATUS_MSG_VALID
-            return_tuple = (True,status_msg)
-        except sqlite3.Error as error:
-            status_msg = "SQL Error: " + error 
-            return_tuple = (False,status_msg)
+        return_tuple = (True,STATUS_MSG_VALID)
 
         return return_tuple
-    
-
-    def populate_tables_n_fields(self,sql_conn):
-
-        field_list = KICAD_FIELD_NAME_LST
-        datatype_list = self.populate_datatype_list(field_list=field_list,data_type=FIELD_DATATYPE_TEXT)
-        for table_name in KICAD_TABLE_NAME_LIST:
-
-            status_bool,status_msg = self.create_sql_table(sql_conn,table_name,field_list,datatype_list)
-            if(status_bool == False):
-                return (status_bool,status_msg)
-        
-        status_bool = True
-        status_msg = "KICAD TEMPLETE TABLES AND FIELDS WERE CREATED FOR DATABASE"
-        return status_bool,status_msg
-
-
-
-    ##
-    # @Todo create new kicad table
-    #
-    def create_new_kicad_table(self,db_path):
-        status_tuple = None
-
-        # check if file exists
-        is_file = os.path.isfile(db_path)
-        if(is_file):
-            status_bool = False
-            status_msg = "FILE ALREADY EXISTS: " + db_path
-            return (status_bool,status_msg)
-
-        # check for valid SQL file extension
-       
-        is_sql_ext = self.is_sql_extension(db_path)
-        if(is_sql_ext == False):
-            status_bool = False
-            status_msg = "INVALID SQL EXTENSION: " + db_path
-            return (status_bool,status_msg)
-        
-        #create new blank kicad database
-        f = open(db_path, "w")
-        f.write("")
-        f.close()
-
-        #populate tables and field
-        
-        (conn,status_msg)  = self.create_connection(db_path=db_path)
-        if(conn == None):
-            return (False,status_msg)
-        
-        
-        (status_bool,status_msg) = self.populate_tables_n_fields(sql_conn=conn)
-
-        if(status_bool == False):
-            return (status_bool,status_msg)
-        
-        conn.close()
-
-        status_bool = True
-        status_msg = "CREATED KICAD DATABASE: " + db_path
-
-        status_tuple = (status_bool, status_msg)
-        return status_tuple
 
     ##
     # @brief Add SQL fields to table SQL command
@@ -1228,5 +1046,12 @@ class Kicad_Database:
     
         
 
-    
+        
+
+        #(status_bool,status_msg) =  self.c
+        
+
+        return_tuple = (False,status_msg)
+        return 
+        print("Todo")
 
