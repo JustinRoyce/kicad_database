@@ -50,6 +50,34 @@ TBL_NAME_OSCILLATOR = "Oscillators"
 TBL_NAME_SWITCH = "Switches"
 TBL_NAME_MISC = "Misc"
 
+PART_ID_PREFIX_RESISTOR  = "RES"
+PART_ID_PREFIX_CAPACITOR = "CAP"
+PART_ID_PREFIX_INDUCTOR  = "IND"
+PART_ID_PREFIX_DIODE     = "DIO"
+PART_ID_PREFIX_TRANSISTOR = "TRAN"
+PART_ID_PREFIX_CONNECTOR = "CONN"
+PART_ID_PREFIX_IC = "IC"
+PART_ID_PREFIX_FUSE = "FUS"
+PART_ID_PREFIX_RELAY = "REL"
+PART_ID_PREFIX_OSCILLATOR = "OSC"
+PART_ID_PREFIX_SWITCH = "SW"
+PART_ID_PREFIX_MISC = "MISC"
+
+PART_ID_PREFIX_DICT = {
+    TBL_NAME_RESISTOR:PART_ID_PREFIX_RESISTOR,
+    TBL_NAME_CAPACITOR:PART_ID_PREFIX_CAPACITOR,
+    TBL_NAME_INDUCTOR:PART_ID_PREFIX_INDUCTOR,
+    TBL_NAME_DIODE:PART_ID_PREFIX_DIODE,
+    TBL_NAME_TRANSISTOR:PART_ID_PREFIX_TRANSISTOR,
+    TBL_NAME_CONNECTOR:PART_ID_PREFIX_CONNECTOR,
+    TBL_NAME_IC:PART_ID_PREFIX_IC,
+    TBL_NAME_FUSE:PART_ID_PREFIX_FUSE,
+    TBL_NAME_RELAY:PART_ID_PREFIX_RELAY,
+    TBL_NAME_OSCILLATOR:PART_ID_PREFIX_OSCILLATOR,
+    TBL_NAME_SWITCH:PART_ID_PREFIX_SWITCH,
+    TBL_NAME_MISC:PART_ID_PREFIX_MISC
+}
+
 
 #reference designators
 TBL_RD_RESISTOR  = "R" 
@@ -211,7 +239,47 @@ class Kicad_Database:
         return is_sql_ext
 
 
-    
+    def int2num_str(self,integer,tailing_zeros = 7):
+        # calculate number of zeros
+
+        if(integer >= 100000):
+            num_of_digits = 7
+        elif(integer <= 999999 and integer >= 100000): 
+            num_of_digits = 6
+        elif(integer <= 99999 and integer >= 10000): 
+            num_of_digits = 5
+        elif(integer <= 9999 and integer >= 1000): 
+            num_of_digits = 4
+        elif(integer <= 999 and integer >= 100): 
+            num_of_digits = 3
+        elif(integer <= 99 and integer >= 10): 
+            num_of_digits = 2
+        elif(integer <= 9 and integer >= 0):
+            num_of_digits = 1
+        else: 
+            num_of_digits = 7
+
+        num_of_zeros = tailing_zeros - num_of_digits
+        str_num = "" 
+        
+        for _ in range(num_of_zeros):
+            str_num = str_num + '0'
+
+        int_str_value = str(integer)
+        int_str_len = len(int_str_value)
+        if(int_str_len > tailing_zeros):
+            i_loc = int_str_len-tailing_zeros
+            int_str_value = int_str_value[i_loc:]
+
+        str_num = str_num + int_str_value
+        
+        return str_num
+
+
+    def create_part_id (self, table, number):
+        
+        # TODO: add functionally  
+        pass 
 
 
 
@@ -619,6 +687,18 @@ class Kicad_Database:
         status_turple = (True, status_msg)
         return status_turple
     
+    ##
+    # does field/ record exist 
+    #
+
+    def does_record_exist(self,table,column, value):
+        conn = self.SQL_connect
+
+        exe_str  = "SELECT 1 FROM " + table + " WHERE " + column + "="+ value +";"
+        
+
+        pass
+
     ##
     # @brief does MPN exist
     # @param table to be accessed

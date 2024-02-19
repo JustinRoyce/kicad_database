@@ -91,12 +91,30 @@ def print_database_info(kicad_db):
         table.add_row(key,str(table_count_dict[key]))
     
     console.print(table)
+
+def test_part_id_format(kicad_db):
+    cprint("*** Testing Number to String Function with Leading Zeros ***", TERMC_DEFAULT)
+    base = 9.456
+    for i_val in range(0,9):
+        expon = pow(10,i_val)
+        test_num = int(base*expon)   
+        str_num = kicad_db.int2num_str(test_num)
+        print("")
+        cprint("\t*** test {} ***".format(str(i_val + 1 )),TERMC_DEFAULT)
+        print("\ttest number = " + str(test_num) + " has " +str(len(str(test_num))) + " digits")
+        print("\toutput number = " + str_num )
+
+
+
+
+
 ##
 # validates if kicad database structure
 #
 def test_db_validation(kicad_db_class:Kicad_Database):
 
     pass
+
 
 def test_main():
     print("")
@@ -128,7 +146,7 @@ def test_main():
     cprint("**** DATABASE INFO: *****",TERMC_DEFAULT)
     print_database_info(kicad_db=kicad_db)
 
-    
+    test_part_id_format(kicad_db)
 
     #test_db_validation(kicad_db_class=kicad_db)
 
