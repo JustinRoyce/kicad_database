@@ -62,6 +62,10 @@ PART_ID_PREFIX_RELAY = "REL"
 PART_ID_PREFIX_OSCILLATOR = "OSC"
 PART_ID_PREFIX_SWITCH = "SW"
 PART_ID_PREFIX_MISC = "MISC"
+PART_ID_EM_DASH = "—"
+PART_ID_LEADING_ZEROS = 7
+
+
 
 PART_ID_PREFIX_DICT = {
     TBL_NAME_RESISTOR:PART_ID_PREFIX_RESISTOR,
@@ -238,7 +242,10 @@ class Kicad_Database:
         
         return is_sql_ext
 
-
+    ##
+    # @brief converts integer to string with leading zeros
+    # example: 123 => 0000123
+    #
     def int2num_str(self,integer,tailing_zeros = 7):
         # calculate number of zeros
 
@@ -275,16 +282,45 @@ class Kicad_Database:
         
         return str_num
 
-
+    ##
+    # create part id from table and integer number
+    # format example: RES  
     def create_part_id (self, table, number):
+        part_id_str = ""
+        if(table in PART_ID_PREFIX_DICT):
+            part_id_prefix  = PART_ID_PREFIX_DICT[table]
+            part_id_number = self.int2num_str(number)
+            part_id_str = part_id_prefix + PART_ID_EM_DASH + part_id_number    
+        return part_id_str
+    
+    ## 
+    # 
+    # TODO 
+    def convert_part_id_2_num(self,part_id,leading_zeros=PART_ID_LEADING_ZEROS):
+        starting_char = part_id.index(PART_ID_EM_DASH)
+        part_id_num_str = part_id[starting_char:]
+        part_id_num_len = len(part_id_num_str)
+        char_indx = 0
         
-        # TODO: add functionally  
-        pass 
+        while((char_val != '0')): 
+            char_val = part_id_num_str[char_indx]
 
+            if(char_val not '0'):
+                break
+            
+            if(char_indx == part_id_num_len):
+                if(char_val == '0'):
+                    return 0
+            
+            char_indx  = char_indx + 1
 
+        part_id_num_str = part_id_num_str[char_indx:]
+        part_id_num = int(part_id_num_str)
+        return part_id_num
 
     ## 
     #@brief updates field list of member functions
+    #
     def update_fld_lst(self):
         self.fld_mfunct_lst = [
             self.fld_part_id,

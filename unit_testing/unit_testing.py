@@ -4,6 +4,7 @@
 import os
 import sys
 import shutil
+import random
 from termcolor import colored, cprint
 from rich.console import Console
 from rich.table import Table
@@ -103,9 +104,30 @@ def test_part_id_format(kicad_db):
         cprint("\t*** test {} ***".format(str(i_val + 1 )),TERMC_DEFAULT)
         print("\ttest number = " + str(test_num) + " has " +str(len(str(test_num))) + " digits")
         print("\toutput number = " + str_num )
+    
+    cprint("\n*** TESTING PART NUMBER CREATION ***", TERMC_DEFAULT)
+    # populate random number list
+    rand_nums_lst = []
+    for _ in range(100):
+        rand_num = random.randint(0, 100000)
+        rand_nums_lst.append(rand_num) 
 
+    print(rand_nums_lst)
 
-
+    #creat part list 
+    table_lst = kicad_db.get_DB_table_list()
+    table_name = table_lst[0]
+    part_id_list = [] 
+    for num in rand_nums_lst:
+        part_id = kicad_db.create_part_id(table_name,num)
+        part_id_list.append(part_id)
+    
+    print(part_id_list)
+    
+    part_num_lst = []  
+    for part_id in part_id_list:
+        part_num = kicad_db.
+        part_num_lst
 
 
 ##
