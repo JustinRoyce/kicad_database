@@ -1,5 +1,9 @@
 from Kicad_Database import *
 from termcolor import colored
+import logging
+
+
+
 def utest_connection(db_path):
     Kicad_DB = Kicad_Database()
 
@@ -27,11 +31,11 @@ def utest_connection(db_path):
     else:
         colored_txt = colored("Database is NOT Closed","red")
         print(colored_txt)
-    
+
+    table_str:str = Kicad_DB.get_mvars_table()
+    print(table_str)
 
     
-
-
 if "__main__" == __name__ :
 
     db_path = KICAD_DB_CODE_PATH

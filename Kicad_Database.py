@@ -12,6 +12,9 @@ import glob2
 from termcolor import colored, cprint
 from inspect import currentframe, getframeinfo
 import pathlib 
+from prettytable import PrettyTable
+import logging
+
 
 """ CREATE  FILE PATHS """
 
@@ -165,6 +168,7 @@ KICAD_FIELD_NOTES = "Notes"
 KICAD_FIELD_NAME_COUNT = 17
 KICAD_FIELD_KEY = "Part_ID"
 
+
 KICAD_FIELD_NAME_LST = [
     "Part_ID",
     "Value",
@@ -194,33 +198,114 @@ KICAD_FIELD_NAME_LST = [
 class Kicad_Database:
     def __init__(self):
 
-        self.database_path = EMPTY_STR
-        self.SQL_connect = None
-        self.curr_table = EMPTY_STR #current table
-        self.field_query = EMPTY_STR
+        self.database_path:str = EMPTY_STR
+        self.SQL_connect:"sqlite3.Connection" = None
+        self.curr_table:str = EMPTY_STR #current table
+        self.field_query:str = EMPTY_STR
 
-        self.fld_part_id = EMPTY_STR
-        self.fld_value = EMPTY_STR
-        self.fld_description = EMPTY_STR
-        self.fld_mpn = EMPTY_STR
-        self.fld_symbol = EMPTY_STR
-        self.fld_footprint = EMPTY_STR
-        self.fld_datasheet = EMPTY_STR
-        self.fld_manufacturer = EMPTY_STR
-        self.fld_digikey_PN = EMPTY_STR
-        self.fld_mouser_PN = EMPTY_STR
-        self.fld_LCSC_PN = EMPTY_STR
-        self.fld_misc_distributor = EMPTY_STR
-        self.fld_misc_PN = EMPTY_STR
-        self.fld_misc_link = EMPTY_STR
-        self.fld_tolerance = EMPTY_STR
-        self.fld_rating = EMPTY_STR
-        self.fld_package = EMPTY_STR
-        self.fld_notes = EMPTY_STR
+        self.fld_part_id:str = EMPTY_STR
+        self.fld_value:str = EMPTY_STR
+        self.fld_description:str = EMPTY_STR
+        self.fld_mpn:str = EMPTY_STR
+        self.fld_symbol:str = EMPTY_STR
+        self.fld_footprint:str = EMPTY_STR
+        self.fld_datasheet:str = EMPTY_STR
+        self.fld_manufacturer:str = EMPTY_STR
+        self.fld_digikey_PN:str = EMPTY_STR
+        self.fld_mouser_PN:str = EMPTY_STR
+        self.fld_LCSC_PN:str = EMPTY_STR
+        self.fld_misc_distributor:str = EMPTY_STR
+        self.fld_misc_PN:str = EMPTY_STR
+        self.fld_misc_link:str = EMPTY_STR
+        self.fld_tolerance:str = EMPTY_STR
+        self.fld_rating:str = EMPTY_STR
+        self.fld_package:str = EMPTY_STR
+        self.fld_notes:str = EMPTY_STR
 
-        self.fld_mfunct_lst = []
+        self.fld_mfunct_lst:list = []
 
     
+    def get_mvars_table(self)-> str:
+        t = PrettyTable()
+        t.title = "MEMBER VARIABLES"
+        
+        table_cols = ["VARIABLES","VALUE","DATA TYPE"]
+        t.field_names = table_cols
+        
+            
+        database_path = self.database_path 
+        t.add_row(["database_path",str(database_path),"str"])
+
+        SQL_connect = self.SQL_connect 
+        t.add_row(["SQL_connect",str(SQL_connect),"sqlite3.Connection"])
+
+        curr_table = self.curr_table 
+        t.add_row(["curr_table",str(curr_table),"str"])
+
+        field_query = self.field_query 
+        t.add_row(["field_query",str(field_query),"str"])
+
+        fld_part_id = self.fld_part_id 
+        t.add_row(["fld_part_id",str(fld_part_id),"str"])
+
+        fld_value = self.fld_value 
+        t.add_row(["fld_value",str(fld_value),"str"])
+
+        fld_description = self.fld_description 
+        t.add_row(["fld_description",str(fld_description),"str"])
+
+        fld_mpn = self.fld_mpn 
+        t.add_row(["fld_mpn",str(fld_mpn),"str"])
+
+        fld_symbol = self.fld_symbol 
+        t.add_row(["fld_symbol",str(fld_symbol),"str"])
+
+        fld_footprint = self.fld_footprint 
+        t.add_row(["fld_footprint",str(fld_footprint),"str"])
+
+        fld_datasheet = self.fld_datasheet 
+        t.add_row(["fld_datasheet",str(fld_datasheet),"str"])
+
+        fld_manufacturer = self.fld_manufacturer 
+        t.add_row(["fld_manufacturer",str(fld_manufacturer),"str"])
+
+        fld_digikey_PN = self.fld_digikey_PN 
+        t.add_row(["fld_digikey_PN",str(fld_digikey_PN),"str"])
+
+        fld_mouser_PN = self.fld_mouser_PN 
+        t.add_row(["fld_mouser_PN",str(fld_mouser_PN),"str"])
+
+        fld_LCSC_PN = self.fld_LCSC_PN 
+        t.add_row(["fld_LCSC_PN",str(fld_LCSC_PN),"str"])
+
+        fld_misc_distributor = self.fld_misc_distributor 
+        t.add_row(["fld_misc_distributor",str(fld_misc_distributor),"str"])
+
+        fld_misc_PN = self.fld_misc_PN 
+        t.add_row(["fld_misc_PN",str(fld_misc_PN),"str"])
+
+        fld_misc_link = self.fld_misc_link 
+        t.add_row(["fld_misc_link",str(fld_misc_link),"str"])
+
+        fld_tolerance = self.fld_tolerance 
+        t.add_row(["fld_tolerance",str(fld_tolerance),"str"])
+
+        fld_rating = self.fld_rating 
+        t.add_row(["fld_rating",str(fld_rating),"str"])
+
+        fld_package = self.fld_package 
+        t.add_row(["fld_package",str(fld_package),"str"])
+
+        fld_notes = self.fld_notes 
+        t.add_row(["fld_notes",str(fld_notes),"str"])
+
+
+
+
+        return t
+        
+
+
     ## 
     # @brief add double quotes to string    
     def add_str_quotes(self, raw_str):
@@ -295,7 +380,7 @@ class Kicad_Database:
     
     ## 
     # 
-    # TODO 
+    # 
     def convert_part_id_2_num(self,part_id,leading_zeros=PART_ID_LEADING_ZEROS):
         starting_char = part_id.index(PART_ID_EM_DASH)
         part_id_num_str = part_id[starting_char:]
@@ -305,7 +390,7 @@ class Kicad_Database:
         while((char_val != '0')): 
             char_val = part_id_num_str[char_indx]
 
-            if(char_val not '0'):
+            if(char_val != '0'):
                 break
             
             if(char_indx == part_id_num_len):
